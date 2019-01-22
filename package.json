@@ -1,0 +1,41 @@
+{
+	"name": "run-in-dir",
+	"version": "0.0.0",
+	"description": "Run a function with changing the current working directory to a given path",
+	"repository": "shinnn/run-in-dir",
+	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"license": "ISC",
+	"scripts": {
+		"pretest": "eslint .",
+		"test": "nyc node test.js"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"cwd",
+		"process",
+		"chdir",
+		"directory",
+		"operation"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"@shinnn/eslint-config": "^6.8.9",
+		"eslint": "^5.12.1",
+		"lodash": "^4.17.11",
+		"nyc": "^13.1.0",
+		"nyc-config-common": "^1.0.1",
+		"tape": "^4.9.2"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn",
+		"rules": {
+			"no-var": "off",
+			"prefer-template": "off"
+		}
+	},
+	"nyc": {
+		"extends": "nyc-config-common"
+	}
+}
