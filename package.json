@@ -29,11 +29,7 @@
 		"tape": "^4.9.2"
 	},
 	"eslintConfig": {
-		"extends": "@shinnn",
-		"rules": {
-			"no-var": "off",
-			"prefer-template": "off"
-		}
+		"extends": "@shinnn"
 	},
 	"nyc": {
 		"extends": "nyc-config-common"

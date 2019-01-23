@@ -1,35 +1,35 @@
 'use strict';
 
-var inspect = require('util').inspect;
-var resolve = require('path').resolve;
+const inspect = require('util').inspect;
+const resolve = require('path').resolve;
 
-var PATH_ERROR = 'Expected a <string> of a directory path';
+const PATH_ERROR = 'Expected a <string> of a directory path';
 
 module.exports = function runInDir(dir, fn) {
 	if (typeof dir !== 'string') {
-		var error0 = new TypeError(PATH_ERROR + ', but got a non-string value ' + inspect(dir) + '.');
-		error0.code = 'ERR_INVALID_ARG_TYPE';
+		const error = new TypeError(`${PATH_ERROR}, but got a non-string value ${inspect(dir)}.`);
+		error.code = 'ERR_INVALID_ARG_TYPE';
 
-		throw error0;
+		throw error;
 	}
 
 	if (dir.length === 0) {
-		var error1 = new Error(PATH_ERROR + ', but got \'\' (empty string).');
-		error1.code = 'ERR_INVALID_ARG_VALUE';
+		const error = new Error(`${PATH_ERROR}, but got '' (empty string).`);
+		error.code = 'ERR_INVALID_ARG_VALUE';
 
-		throw error1;
+		throw error;
 	}
 
-	var absoluteDir = resolve(dir);
+	const absoluteDir = resolve(dir);
 
 	if (typeof fn !== 'function') {
-		var error2 = new TypeError('Expected a <Function> to be run in ' + absoluteDir + ', but got a non-function value ' + inspect(fn) + '.');
-		error2.code = 'ERR_INVALID_ARG_TYPE';
+		const error = new TypeError(`Expected a <Function> to be run in ${absoluteDir}, but got a non-function value ${inspect(fn)}.`);
+		error.code = 'ERR_INVALID_ARG_TYPE';
 
-		throw error2;
+		throw error;
 	}
 
-	var cwd = process.cwd();
+	const cwd = process.cwd();
 
 	if (cwd === absoluteDir) {
 		return fn();
@@ -37,7 +37,7 @@ module.exports = function runInDir(dir, fn) {
 
 	process.chdir(absoluteDir);
 
-	var result = fn();
+	const result = fn();
 
 	process.chdir(cwd);
 
