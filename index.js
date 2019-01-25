@@ -3,9 +3,28 @@
 const inspect = require('util').inspect;
 const resolve = require('path').resolve;
 
+const ARG_ERROR = 'Expected 2 arguments (<string>[, <Function>])';
 const PATH_ERROR = 'Expected a <string> of a directory path';
 
-module.exports = function runInDir(dir, fn) {
+module.exports = function runInDir(...args) {
+	const argLen = args.length;
+
+	if (argLen === 0) {
+		const error = new RangeError(`${ARG_ERROR}, but got no arguments.`);
+		error.code = 'ERR_MISSING_ARGS';
+
+		throw error;
+	}
+
+	if (argLen !== 2) {
+		const error = new RangeError(`${ARG_ERROR}, but got ${argLen} arguments.`);
+		error.code = 'ERR_TOO_MANY_ARGS';
+
+		throw error;
+	}
+
+	const [dir, fn] = args;
+
 	if (typeof dir !== 'string') {
 		const error = new TypeError(`${PATH_ERROR}, but got a non-string value ${inspect(dir)}.`);
 		error.code = 'ERR_INVALID_ARG_TYPE';

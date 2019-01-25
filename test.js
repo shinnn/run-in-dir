@@ -49,5 +49,17 @@ test('Argument validation', t => {
 		'should fail when the second argument is not a function.'
 	);
 
+	t.throws(
+		() => runInDir(),
+		/^RangeError: Expected 2 arguments \(<string>\[, <Function>\]\), but got no arguments\./u,
+		'should fail when it takes no arguments.'
+	);
+
+	t.throws(
+		() => runInDir('a', noop, 'b'),
+		/^RangeError: Expected 2 arguments \(<string>\[, <Function>\]\), but got 3 arguments\./u,
+		'should fail when it takes too many arguments.'
+	);
+
 	t.end();
 });
