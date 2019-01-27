@@ -33,7 +33,7 @@ test('runInDir()', t => {
 test('Argument validation', t => {
 	t.throws(
 		() => runInDir(-0, noop),
-		/^TypeError: Expected a <string> of a directory path, but got a non-string value -0\./u,
+		/^TypeError: Expected a <string> of a directory path, but got a non-string value -0 \(number\)\./u,
 		'should fail when the first argument is not a string.'
 	);
 

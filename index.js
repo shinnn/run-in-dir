@@ -1,7 +1,8 @@
 'use strict';
 
-const inspect = require('util').inspect;
-const resolve = require('path').resolve;
+const {resolve} = require('path');
+
+const inspectWithKind = require('inspect-with-kind');
 
 const ARG_ERROR = 'Expected 2 arguments (<string>[, <Function>])';
 const PATH_ERROR = 'Expected a <string> of a directory path';
@@ -26,7 +27,7 @@ module.exports = function runInDir(...args) {
 	const [dir, fn] = args;
 
 	if (typeof dir !== 'string') {
-		const error = new TypeError(`${PATH_ERROR}, but got a non-string value ${inspect(dir)}.`);
+		const error = new TypeError(`${PATH_ERROR}, but got a non-string value ${inspectWithKind(dir)}.`);
 		error.code = 'ERR_INVALID_ARG_TYPE';
 
 		throw error;
@@ -42,7 +43,7 @@ module.exports = function runInDir(...args) {
 	const absoluteDir = resolve(dir);
 
 	if (typeof fn !== 'function') {
-		const error = new TypeError(`Expected a <Function> to be run in ${absoluteDir}, but got a non-function value ${inspect(fn)}.`);
+		const error = new TypeError(`Expected a <Function> to be run in ${absoluteDir}, but got a non-function value ${inspectWithKind(fn)}.`);
 		error.code = 'ERR_INVALID_ARG_TYPE';
 
 		throw error;

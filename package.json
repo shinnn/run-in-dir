@@ -19,7 +19,9 @@
 		"directory",
 		"operation"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"inspect-with-kind": "^1.0.5"
+	},
 	"devDependencies": {
 		"@shinnn/eslint-config": "^6.8.9",
 		"eslint": "^5.12.1",
