@@ -39,7 +39,7 @@ const runInDir = require('run-in-dir');
 ### runInDir(*dir*, *fn*)
 
 *dir*: `string` (a directory path where *fn* will be invoked)  
-*fn*: `Function`  
+*fn*: `Function` (a non-[async](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncFunction) one)  
 Return: `any` (return value of *fn*)
 
 It [changes the current working directory](https://nodejs.org/api/process.html#process_process_chdir_directory) to *dir*, call *fn* and immediately change back to the original working directory.

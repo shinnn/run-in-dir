@@ -50,6 +50,12 @@ test('Argument validation', t => {
 	);
 
 	t.throws(
+		() => runInDir('abc', async () => {}),
+		/^TypeError: Expected a non-async <Function> to be run in .*abc, but got an async function \[AsyncFunction\]\./u,
+		'should fail when the second argument is an async function.'
+	);
+
+	t.throws(
 		() => runInDir(),
 		/^RangeError: Expected 2 arguments \(<string>\[, <Function>\]\), but got no arguments\./u,
 		'should fail when it takes no arguments.'

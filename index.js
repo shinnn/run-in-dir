@@ -1,6 +1,7 @@
 'use strict';
 
 const {resolve} = require('path');
+const {inspect} = require('util');
 
 const inspectWithKind = require('inspect-with-kind');
 
@@ -44,6 +45,13 @@ module.exports = function runInDir(...args) {
 
 	if (typeof fn !== 'function') {
 		const error = new TypeError(`Expected a <Function> to be run in ${absoluteDir}, but got a non-function value ${inspectWithKind(fn)}.`);
+		error.code = 'ERR_INVALID_ARG_TYPE';
+
+		throw error;
+	}
+
+	if (inspect(fn).startsWith('[AsyncFunction')) {
+		const error = new TypeError(`Expected a non-async <Function> to be run in ${absoluteDir}, but got an async function ${inspect(fn, {breakLength: Infinity})}.`);
 		error.code = 'ERR_INVALID_ARG_TYPE';
 
 		throw error;
