@@ -60,4 +60,4 @@ runInDir('fixtures', () => {
 
 ## License
 
-[ISC License](./LICENSE) © 2019 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2019 Watanabe Shinnosuke
