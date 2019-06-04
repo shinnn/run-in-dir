@@ -7,7 +7,7 @@
 	"license": "ISC",
 	"scripts": {
 		"pretest": "eslint .",
-		"test": "coverage test.js"
+		"test": "coverage test.mjs"
 	},
 	"files": [
 		"index.js"
@@ -23,11 +23,11 @@
 		"inspect-with-kind": "^1.0.5"
 	},
 	"devDependencies": {
-		"@shinnn/eslint-config": "^6.10.2",
-		"coverage": "^0.1.5",
+		"@shinnn/eslint-config": "^6.10.4",
+		"coverage": "^0.3.3",
 		"eslint": "^5.16.0",
 		"lodash": "^4.17.11",
-		"tape": "^4.10.1"
+		"testit": "^3.1.0"
 	},
 	"eslintConfig": {
 		"extends": "@shinnn"
