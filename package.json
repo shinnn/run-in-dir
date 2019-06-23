@@ -1,6 +1,6 @@
 {
 	"name": "run-in-dir",
-	"version": "0.3.0",
+	"version": "1.0.0",
 	"description": "Run a function with changing the current working directory to a given path",
 	"author": "Watanabe Shinnosuke (https://github.com/shinnn)",
 	"repository": "shinnn/run-in-dir",
@@ -24,7 +24,7 @@
 	},
 	"devDependencies": {
 		"@shinnn/eslint-config": "^6.10.4",
-		"coverage": "^0.3.3",
+		"coverage": "^0.4.1",
 		"eslint": "^5.16.0",
 		"lodash": "^4.17.11",
 		"testit": "^3.1.0"
