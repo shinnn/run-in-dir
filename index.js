@@ -65,9 +65,13 @@ module.exports = function runInDir(...args) {
 
 	process.chdir(absoluteDir);
 
-	const result = fn();
+	let result;
 
-	process.chdir(cwd);
+	try {
+		result = fn();
+	} finally {
+		process.chdir(cwd);
+	}
 
 	return result;
 };

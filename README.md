@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.com/shinnn/run-in-dir.svg?branch=master)](https://travis-ci.com/shinnn/run-in-dir)
 [![codecov](https://codecov.io/gh/shinnn/run-in-dir/branch/master/graph/badge.svg)](https://codecov.io/gh/shinnn/run-in-dir)
 
-Run a function with changing the current working directory to a given path
+Run a function with changing the current working directory to a given path temporarily
 
 ```javascript
 const {resolve} = require('path');

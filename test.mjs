@@ -17,6 +17,13 @@ test('support a relative path', () => {
 	assert.equal(runInDir('.', () => process.cwd()), originalCwd);
 });
 
+test('restore the current directory even if a function throws an error', () => {
+	assert.throws(() => runInDir(dir, () => {
+		throw new Error(`This error was thrown on purpose in ${process.cwd()}.`);
+	}), {message: `This error was thrown on purpose in ${dir}.`});
+	assert.equal(process.cwd(), originalCwd);
+});
+
 test('fail when the first argument is not a string', () => {
 	assert.throws(() => runInDir(-0, noop), {
 		name: 'TypeError',
