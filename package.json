@@ -1,6 +1,6 @@
 {
 	"name": "run-in-dir",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Run a function with changing the current working directory to a given path",
 	"author": "Watanabe Shinnosuke (https://github.com/shinnn)",
 	"repository": "shinnn/run-in-dir",
